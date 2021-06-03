@@ -1,0 +1,46 @@
+.hero {
+  padding: 1rem;
+  min-height: 70vh;
+  min-width: 100vw;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+
+  .hero-form {
+    display: grid;
+    gap: 2rem;
+    max-width: 500px;
+    place-items: center;
+    justify-self: center;
+    align-self: flex-start;
+
+    .hero-btn-container {
+      display: flex;
+      justify-content: center;
+    }
+    .hero-username-input {
+      width: 70vw;
+      max-width: 500px;
+    }
+  }
+
+  .hero-loading-section {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .hero-error-alert {
+    width: 80vw;
+    align-self: flex-start;
+  }
+  .space-filler {
+    line-height: 1.43;
+  }
+}
+
+@media screen and (min-width: 762px) {
+  .hero-form {
+    grid-template-columns: auto auto;
+  }
+}
