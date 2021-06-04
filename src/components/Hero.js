@@ -7,27 +7,46 @@ import axios from "axios";
 import Alert from "@material-ui/lab/Alert";
 import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from "@material-ui/icons/Close";
-
+export const Data = React.createContext();
 const Hero = () => {
   const [input, setInput] = useState("");
   const [response, setResponse] = useState({});
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
-  const handleSubmit = async (e) => {
+  const [followers, setFollowers] = useState([]);
+  const [repos, setRepos] = useState([]);
+  const [isSearched, setIsSearched] = useState(false);
+  const handleSubmit = (e) => {
     e.preventDefault();
     if (input === "") return;
     setIsLoading(true);
     axios
       .get(`https://api.github.com/users/${input}`)
       .then((response) => response.data)
-      .then((response) => setResponse(response))
+      .then((response) => {
+        setResponse(response);
+        return response;
+      })
+      .then((response) => {
+        getRepos(response);
+        getFollowers(response);
+        setIsLoading(false);
+        setIsSearched(true);
+      })
       .catch((e) => {
         console.log(e, "here is an error");
         setIsLoading(false);
         setIsError(true);
+        return;
       });
-
-    console.log(input);
+  };
+  const getRepos = async ({ repos_url }) => {
+    let repoList = await (await axios.get(repos_url)).data;
+    setRepos(repoList);
+  };
+  const getFollowers = async ({ followers_url }) => {
+    let followersList = await (await axios.get(followers_url)).data;
+    setFollowers(followersList);
   };
 
   if (isLoading) {
@@ -41,42 +60,67 @@ const Hero = () => {
   }
   return (
     <section className="hero">
-      {isError ? (
-        <Alert
-          className="hero-error-alert"
-          severity="error"
-          action={
-            <IconButton
-              aria-label="close"
-              color="inherit"
-              size="small"
-              onClick={() => {
-                setIsError(false);
-              }}
+      {!isSearched ? (
+        <>
+          {isError ? (
+            <Alert
+              className="hero-error-alert"
+              severity="error"
+              action={
+                <IconButton
+                  aria-label="close"
+                  color="inherit"
+                  size="small"
+                  onClick={() => {
+                    setIsError(false);
+                  }}
+                >
+                  <CloseIcon fontSize="inherit" />
+                </IconButton>
+              }
             >
-              <CloseIcon fontSize="inherit" />
-            </IconButton>
+              Enter valid user name
+            </Alert>
+          ) : (
+            <div className="space-filler"></div>
+          )}
+
+          <form className="hero-form" onSubmit={handleSubmit}>
+            <Input
+              inputProps={{ "aria-label": "description" }}
+              placeholder="Enter your username"
+              className="hero-username-input"
+              onChange={(e) => setInput(e.target.value)}
+              type="text"
+            />
+            <div className="hero-btn-container">
+              <Button
+                variant="contained"
+                color="primary"
+                onClick={handleSubmit}
+              >
+                Search
+              </Button>
+            </div>
+          </form>
+        </>
+      ) : (
+        <Data.Provider
+          value={
+            (response,
+            followers,
+            repos,
+            setResponse,
+            setFollowers,
+            setRepos,
+            input,
+            setInput,
+            handleSubmit)
           }
         >
-          Enter valid user name
-        </Alert>
-      ) : (
-        <div className="space-filler"></div>
+          items are searched
+        </Data.Provider>
       )}
-
-      <form className="hero-form" onSubmit={handleSubmit}>
-        <Input
-          inputProps={{ "aria-label": "description" }}
-          placeholder="Enter your username"
-          className="hero-username-input"
-          onChange={(e) => setInput(e.target.value)}
-        />
-        <div className="hero-btn-container">
-          <Button variant="contained" color="primary" onClick={handleSubmit}>
-            Search
-          </Button>
-        </div>
-      </form>
     </section>
   );
 };
