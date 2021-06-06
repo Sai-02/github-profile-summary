@@ -50,9 +50,9 @@ const Hero = () => {
   };
   window.addEventListener("beforeunload", (e) => {
     e.preventDefault();
-    // e.returnValue = "";
+    e.returnValue = "";
     history.push("");
-    // return false;
+    return "";
   });
   useEffect(() => {
     history.push("");
