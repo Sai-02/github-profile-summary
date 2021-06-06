@@ -48,7 +48,9 @@ const Hero = () => {
         return;
       });
   };
-
+  useEffect(() => {
+    history.push("");
+  }, []);
   const getRepos = async ({ repos_url }) => {
     let repoList = await (await axios.get(repos_url)).data;
     setRepos(repoList);
