@@ -48,6 +48,12 @@ const Hero = () => {
         return;
       });
   };
+  window.addEventListener("beforeunload", (e) => {
+    e.preventDefault();
+    // e.returnValue = "";
+    history.push("");
+    // return false;
+  });
   useEffect(() => {
     history.push("");
   }, []);
