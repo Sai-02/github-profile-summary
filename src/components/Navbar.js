@@ -26,7 +26,7 @@ const Navbar = () => {
         <Typography variant="h6" className={`${classes.title}`}>
           <span
             onClick={() => {
-              history.push("");
+              // history.push("");
               window.location.reload();
             }}
             className="navbar-h6-span"

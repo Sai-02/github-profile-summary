@@ -48,15 +48,7 @@ const Hero = () => {
         return;
       });
   };
-  window.addEventListener("beforeunload", (e) => {
-    e.preventDefault();
-    e.returnValue = "";
-    history.push("");
-    return "";
-  });
-  useEffect(() => {
-    history.push("");
-  }, []);
+
   const getRepos = async ({ repos_url }) => {
     let repoList = await (await axios.get(repos_url)).data;
     setRepos(repoList);
