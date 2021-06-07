@@ -48,8 +48,10 @@ const Chart = ({ data, typeOfChart, caption, yAxis, xAxis }) => {
         numberSuffix: "",
         //Set the theme for your chart
         theme: "fusion",
-        decimal: "0",
+        decimals:0,
+        
       },
+      
       // Chart Data
       data: data,
     },
