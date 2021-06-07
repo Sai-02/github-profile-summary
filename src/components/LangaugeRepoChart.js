@@ -1,9 +1,9 @@
 import React from "react";
 import { useContext } from "react";
-import PieChart from "./Charts/PieChart";
+import Chart from "./Charts/Chart";
 import { Data } from "./Hero";
 
-const ChartsContainer = () => {
+const LangaugeRepoChart = () => {
   const { repos } = useContext(Data);
   let charData = [];
 
@@ -18,7 +18,7 @@ const ChartsContainer = () => {
         );
       }
     });
-    console.log(dataMap);
+
     dataMap.forEach((value, key) => {
       charData.push({ label: key, value: value });
     });
@@ -27,7 +27,21 @@ const ChartsContainer = () => {
   };
   getLanguageInfo();
 
-  return <div>{charData.length > 0 ? <PieChart data={charData} /> : ""}</div>;
+  return (
+    <div>
+      {charData.length > 0 ? (
+        <Chart
+          data={charData}
+          typeOfChart="column3d"
+          caption="Most used Languages"
+          xAxis="Languages"
+          yAxis="Repositories"
+        />
+      ) : (
+        ""
+      )}
+    </div>
+  );
 };
 
-export default ChartsContainer;
+export default LangaugeRepoChart;

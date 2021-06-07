@@ -1,12 +1,13 @@
 import React from "react";
 
-import ChartsContainer from "./ChartsContainer";
+import LanguageRepoChart from "./LangaugeRepoChart";
+import RepoStarChart from "./RepoStarChart";
 
 const Response = () => {
- console.log("in response section")
   return (
     <section className="response-section">
-      <ChartsContainer />
+      <LanguageRepoChart />
+      <RepoStarChart />
     </section>
   );
 };

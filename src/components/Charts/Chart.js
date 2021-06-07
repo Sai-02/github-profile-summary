@@ -28,9 +28,9 @@ ReactFC.fcRoot(FusionCharts, Column2D, FusionTheme);
 //     return <ReactFC {...chartConfigs} />;
 //   }
 // }
-const PieChart = ({ data }) => {
+const Chart = ({ data, typeOfChart, caption, yAxis, xAxis }) => {
   const chartConfigs = {
-    type: "column3d", // The chart type
+    type: typeOfChart, // The chart type
     width: "700", // Width of the chart
     height: "400", // Height of the chart
     dataFormat: "json", // Data type
@@ -38,16 +38,17 @@ const PieChart = ({ data }) => {
       // Chart Configuration
       chart: {
         //Set the chart caption
-        caption: "Most used Languages",
+        caption: caption,
         //Set the chart subcaption
         subCaption: "",
         //Set the x-axis name
-        xAxisName: "Languages",
+        xAxisName: xAxis,
         //Set the y-axis name
-        yAxisName: "Repositories",
+        yAxisName: yAxis,
         numberSuffix: "",
         //Set the theme for your chart
         theme: "fusion",
+        decimal: "0",
       },
       // Chart Data
       data: data,
@@ -56,4 +57,4 @@ const PieChart = ({ data }) => {
   return <ReactFC {...chartConfigs} />;
 };
 
-export default PieChart;
+export default Chart;
