@@ -12,7 +12,6 @@ const RepoStarChart = () => {
       }
     });
     chartData.sort((a, b) => b.value - a.value);
-    console.log(chartData);
   };
   getRepoStar();
 
