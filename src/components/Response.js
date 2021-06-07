@@ -1,7 +1,14 @@
 import React from "react";
 
+import ChartsContainer from "./ChartsContainer";
+
 const Response = () => {
-  return <div>hellow your item is searched</div>;
+ console.log("in response section")
+  return (
+    <section className="response-section">
+      <ChartsContainer />
+    </section>
+  );
 };
 
 export default Response;

@@ -10,8 +10,8 @@ import CloseIcon from "@material-ui/icons/Close";
 import Response from "./Response";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { useHistory } from "react-router";
-
-export const Data = React.createContext();
+const Data = React.createContext(null);
+export { Data };
 const Hero = () => {
   const [input, setInput] = useState("");
   const [response, setResponse] = useState({});
@@ -121,7 +121,8 @@ const Hero = () => {
         ) : (
           <Data.Provider
             value={
-              (response,
+              {
+              response,
               followers,
               repos,
               setResponse,
@@ -129,7 +130,8 @@ const Hero = () => {
               setRepos,
               input,
               setInput,
-              handleSubmit)
+              handleSubmit
+              }
             }
           >
             <Route path="/react" component={Response} />
