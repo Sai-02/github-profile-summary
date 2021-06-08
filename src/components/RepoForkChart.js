@@ -13,7 +13,6 @@ const RepoForkChart = () => {
       }
     });
     chartData.sort((a, b) => b.value - a.value);
-    console.log(chartData);
   };
   getRepoFork();
   return (
