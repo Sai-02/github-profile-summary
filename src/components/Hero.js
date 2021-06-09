@@ -8,7 +8,7 @@ import Alert from "@material-ui/lab/Alert";
 import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from "@material-ui/icons/Close";
 import Response from "./Response";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import { useHistory } from "react-router";
 const Data = React.createContext(null);
 export { Data };
@@ -120,8 +120,7 @@ const Hero = () => {
           </div>
         ) : (
           <Data.Provider
-            value={
-              {
+            value={{
               response,
               followers,
               repos,
@@ -130,9 +129,8 @@ const Hero = () => {
               setRepos,
               input,
               setInput,
-              handleSubmit
-              }
-            }
+              handleSubmit,
+            }}
           >
             <Route path="/react" component={Response} />
             <Response />
