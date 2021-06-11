@@ -16,7 +16,7 @@ const RepoForkChart = () => {
   };
   getRepoFork();
   return (
-    <div>
+    <div className="chart-container">
       {chartData.length > 0 ? (
         <Chart
           data={chartData}

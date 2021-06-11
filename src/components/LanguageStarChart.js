@@ -27,7 +27,7 @@ const LanguageStarChart = () => {
   getLanguageStar();
 
   return (
-    <div>
+    <div className="chart-container">
       {chartData.length > 0 ? (
         <Chart
           data={chartData}

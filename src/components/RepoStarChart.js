@@ -16,7 +16,7 @@ const RepoStarChart = () => {
   getRepoStar();
 
   return (
-    <div>
+    <div className="chart-container">
       {chartData.length > 0 ? (
         <Chart
           data={chartData}
@@ -24,6 +24,8 @@ const RepoStarChart = () => {
           caption="Most starred repos"
           xAxis="Repo name"
           yAxis="stars"
+          // className="chart"
+          
         />
       ) : (
         ""

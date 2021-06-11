@@ -8,10 +8,12 @@ const Response = () => {
   return (
     <section className="response-section">
       <UserInfo />
-      {/* <LanguageRepoChart />
-      <RepoStarChart />
-      <RepoForkChart />
-      <LanguageStarChart/> */}
+      <div className="charts-container">
+        <LanguageRepoChart className="Charts" />
+        <RepoStarChart className="Charts" />
+        <RepoForkChart className="Charts" />
+        <LanguageStarChart className="Charts" />
+      </div>
     </section>
   );
 };

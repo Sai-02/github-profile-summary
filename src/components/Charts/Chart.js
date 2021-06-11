@@ -31,8 +31,8 @@ ReactFC.fcRoot(FusionCharts, Column2D, FusionTheme);
 const Chart = ({ data, typeOfChart, caption, yAxis, xAxis }) => {
   const chartConfigs = {
     type: typeOfChart, // The chart type
-    width: "700", // Width of the chart
-    height: "400", // Height of the chart
+    width: "100%", // Width of the chart
+    height: "50%", // Height of the chart
     dataFormat: "json", // Data type
     dataSource: {
       // Chart Configuration
@@ -48,12 +48,11 @@ const Chart = ({ data, typeOfChart, caption, yAxis, xAxis }) => {
         numberSuffix: "",
         //Set the theme for your chart
         theme: "fusion",
-        decimals:0,
-        
+        decimals: 0,
       },
-      
+
       // Chart Data
-      data: data,
+      data: data.slice(0,5),
     },
   };
   return <ReactFC {...chartConfigs} />;

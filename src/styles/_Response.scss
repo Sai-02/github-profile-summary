@@ -4,3 +4,22 @@
   max-width: 1000vw;
   overflow: hidden;
 }
+.charts-container {
+  display: grid;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+.chart-container{
+  max-width: 25rem;
+}
+@media screen and (min-width: 992px) {
+  .charts-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4rem;
+    padding: 4rem;
+  }
+  .chart-container{
+    max-width: 30rem;
+  }
+}

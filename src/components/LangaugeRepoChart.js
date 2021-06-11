@@ -28,7 +28,7 @@ const LangaugeRepoChart = () => {
   getLanguageInfo();
 
   return (
-    <div>
+    <div className="chart-container">
       {charData.length > 0 ? (
         <Chart
           data={charData}
