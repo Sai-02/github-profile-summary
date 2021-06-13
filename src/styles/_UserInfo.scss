@@ -23,6 +23,10 @@
       grid-template-columns: auto auto;
       gap: 1rem;
       padding: 1rem;
+      box-shadow: -4px 1px 24px 0px rgb(187, 180, 180);
+      border-radius: 20px;
+// -webkit-box-shadow: -4px 1px 24px 0px white inset;
+// -moz-box-shadow: -4px 1px 24px 0px white inset;
 
       .icon-section {
         padding: 1rem;

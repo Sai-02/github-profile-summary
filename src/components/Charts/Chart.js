@@ -32,7 +32,7 @@ const Chart = ({ data, typeOfChart, caption, yAxis, xAxis }) => {
   const chartConfigs = {
     type: typeOfChart, // The chart type
     width: "100%", // Width of the chart
-    height: "50%", // Height of the chart
+    height: "100%", // Height of the chart
     dataFormat: "json", // Data type
     dataSource: {
       // Chart Configuration
