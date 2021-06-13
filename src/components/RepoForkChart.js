@@ -16,19 +16,21 @@ const RepoForkChart = () => {
   };
   getRepoFork();
   return (
-    <div className="chart-container">
+    <>
       {chartData.length > 0 ? (
-        <Chart
-          data={chartData}
-          typeOfChart="column2d"
-          caption="Most forked repos"
-          xAxis="Repo name"
-          yAxis="forks"
-        />
+        <div className="chart-container">
+          <Chart
+            data={chartData}
+            typeOfChart="column2d"
+            caption="Most forked repos"
+            xAxis="Repo name"
+            yAxis="forks"
+          />
+        </div>
       ) : (
         ""
       )}
-    </div>
+    </>
   );
 };
 

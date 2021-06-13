@@ -16,21 +16,22 @@ const RepoStarChart = () => {
   getRepoStar();
 
   return (
-    <div className="chart-container">
+    <>
       {chartData.length > 0 ? (
-        <Chart
-          data={chartData}
-          typeOfChart="doughnut3d"
-          caption="Most starred repos"
-          xAxis="Repo name"
-          yAxis="stars"
-          // className="chart"
-          
-        />
+        <div className="chart-container">
+          <Chart
+            data={chartData}
+            typeOfChart="doughnut3d"
+            caption="Most starred repos"
+            xAxis="Repo name"
+            yAxis="stars"
+            // className="chart"
+          />
+        </div>
       ) : (
         ""
       )}
-    </div>
+    </>
   );
 };
 

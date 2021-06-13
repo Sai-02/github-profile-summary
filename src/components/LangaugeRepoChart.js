@@ -28,19 +28,21 @@ const LangaugeRepoChart = () => {
   getLanguageInfo();
 
   return (
-    <div className="chart-container">
+    <>
       {charData.length > 0 ? (
-        <Chart
-          data={charData}
-          typeOfChart="column3d"
-          caption="Most used Languages"
-          xAxis="Languages"
-          yAxis="Repositories"
-        />
+        <div className="chart-container">
+          <Chart
+            data={charData}
+            typeOfChart="column3d"
+            caption="Most used Languages"
+            xAxis="Languages"
+            yAxis="Repositories"
+          />
+        </div>
       ) : (
         ""
       )}
-    </div>
+    </>
   );
 };
 

@@ -27,19 +27,21 @@ const LanguageStarChart = () => {
   getLanguageStar();
 
   return (
-    <div className="chart-container">
+    <>
       {chartData.length > 0 ? (
-        <Chart
-          data={chartData}
-          typeOfChart="pie2d"
-          caption="Most starred language"
-          xAxis="Languages"
-          yAxis="stars"
-        />
+        <div className="chart-container">
+          <Chart
+            data={chartData}
+            typeOfChart="pie2d"
+            caption="Most starred language"
+            xAxis="Languages"
+            yAxis="stars"
+          />
+        </div>
       ) : (
         ""
       )}
-    </div>
+    </>
   );
 };
 
