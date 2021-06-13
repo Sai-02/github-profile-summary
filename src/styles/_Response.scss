@@ -6,20 +6,33 @@
 }
 .charts-container {
   display: grid;
-  gap: 1rem;
+  gap: 4rem;
   justify-content: center;
   align-items: center;
 }
 .chart-container{
-  max-width: 25rem;
+  // max-width: 25rem;
+  // display: flex;
+  justify-content: center;
+  align-items: center;
 }
 @media screen and (min-width: 992px) {
   .charts-container {
     grid-template-columns: repeat(2, 1fr);
-    gap: 4rem;
+    gap: 2rem;
     padding: 4rem;
   }
   .chart-container{
+    // justify-self: center;
     max-width: 30rem;
+    // padding: 2rem;
   }
 }
+// @media screen and (max-width:500px){
+//   .charts-container{
+//     padding: 2rem;
+//   }
+//   .chart-container{
+//     width: 80%;
+//   }
+// }

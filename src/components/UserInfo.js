@@ -105,7 +105,7 @@ const UserInfo = () => {
           <ul className="followers-list">
             {followers.map((follower) => {
               return (
-                <li>
+                <li key={follower.id}>
                   <div className="follower-img-container">
                     <img src={follower.avatar_url} alt="" />
                   </div>
